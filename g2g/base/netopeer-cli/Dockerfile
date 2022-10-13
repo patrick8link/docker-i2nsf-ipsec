@@ -13,7 +13,7 @@ RUN apt-get install -y iproute2 tcpdump iputils-ping curl libpam0g-dev autotools
 RUN set -e -x; \
 	git clone https://github.com/patrick8link/i2nsf-ipsec.git; 
 
-ENV SRC_PATH /home/netconf/cfgipsec2
+ENV SRC_PATH /home/netconf/i2nsf-ipsec
 WORKDIR $SRC_PATH
 
 

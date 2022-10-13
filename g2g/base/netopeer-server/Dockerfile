@@ -28,10 +28,10 @@ ENV LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib/ipsec:/usr/lib/ipsec/
 
 RUN set -e -x; \
 	git clone https://github.com/patrick8link/i2nsf-ipsec.git; \
-	cd cfgipsec2; 
+	cd i2nsf-ipsec; 
 
 
-ENV SRC_PATH /home/netconf/cfgipsec2
+ENV SRC_PATH /home/netconf/i2nsf-ipsec
 WORKDIR $SRC_PATH
 
 COPY misc/routes.sh .
