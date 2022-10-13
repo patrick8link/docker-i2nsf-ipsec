@@ -27,7 +27,7 @@ RUN set -e -x; cp /home/netconf/strongswan-$STRONGSWAN_VERSION_BUILD/src/libchar
 ENV LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib/ipsec:/usr/lib/ipsec/
 
 RUN set -e -x; \
-	git -c http.sslVerify=false clone https://gitlab.atica.um.es/gabilm.um.es/cfgipsec2.git; \
+	git clone https://github.com/patrick8link/i2nsf-ipsec.git; \
 	cd cfgipsec2; 
 
 
@@ -43,5 +43,7 @@ CMD ["/usr/bin/supervisord", "-c", "/etc/supervisord.conf"]
 #Debug
 EXPOSE 830
 
-
-
+RUN apt-get update && apt-get install -y openssh-server
+RUN mkdir /var/run/sshd
+RUN sed -i 's/#PermitRootLogin prohibit-password/PermitRootLogin yes/' /etc/ssh/sshd_config
+EXPOSE 22
