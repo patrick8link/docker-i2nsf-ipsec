@@ -29,7 +29,9 @@ ENV LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib/ipsec:/usr/lib/ipsec/
 RUN set -e -x; \
 	git clone https://github.com/patrick8link/i2nsf-ipsec.git; \
 	cd i2nsf-ipsec; \
-	git checkout wldyd; 
+	git checkout wldyd; \
+    git branch --set-upstream-to=origin/wldyd; \
+    git pull;
 
 ENV SRC_PATH /home/netconf/i2nsf-ipsec
 WORKDIR $SRC_PATH
