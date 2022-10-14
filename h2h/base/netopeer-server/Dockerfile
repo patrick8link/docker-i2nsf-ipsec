@@ -27,9 +27,9 @@ ENV LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib/ipsec:/usr/lib/ipsec/
 
 #Install cfgipec2
 RUN set -e -x; \
-	git checkout wldyd; \
 	git clone https://github.com/patrick8link/i2nsf-ipsec.git; \
-	cd i2nsf-ipsec; 
+	cd i2nsf-ipsec; \
+	git checkout wldyd; 
 
 ENV SRC_PATH /home/netconf/i2nsf-ipsec
 WORKDIR $SRC_PATH
