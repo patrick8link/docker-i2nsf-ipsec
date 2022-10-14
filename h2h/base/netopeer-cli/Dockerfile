@@ -1,5 +1,11 @@
 FROM sysrepo/sysrepo-netopeer2:legacy
 
+RUN cd /opt/dev && \
+    cd libyang && git checkout v1.0.184 && \
+    cd build && \ 
+    cmake -DCMAKE_INSTALL_PREFIX=/usr -DCMAKE_BUILD_TYPE="Debug" -DENABLE_BUILD_TESTS=OFF .. && \
+    make -j2 && make install
+
 ENV SRC_PATH /home/netconf
 WORKDIR $SRC_PATH
 
@@ -9,11 +15,15 @@ RUN apt-get install -y iproute2 tcpdump iputils-ping curl libpam0g-dev autotools
 
 #Install cfgipec2, not compilation required, only for xml configuration examples
 RUN set -e -x; \
-	git -c http.sslVerify=false clone https://gitlab.atica.um.es/gabilm.um.es/cfgipsec2.git; 
+	git checkout wldyd; \
+	git clone https://github.com/patrick8link/i2nsf-ipsec.git;
 
-ENV SRC_PATH /home/netconf/cfgipsec2
+ENV SRC_PATH /home/netconf/i2nsf-ipsec
 WORKDIR $SRC_PATH
 
 
-
+RUN apt-get update && apt-get install -y openssh-server
+RUN mkdir /var/run/sshd
+RUN sed -i 's/#PermitRootLogin prohibit-password/PermitRootLogin yes/' /etc/ssh/sshd_config
+EXPOSE 22
 

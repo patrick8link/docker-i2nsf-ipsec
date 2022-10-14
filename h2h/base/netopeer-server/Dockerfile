@@ -27,10 +27,11 @@ ENV LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib/ipsec:/usr/lib/ipsec/
 
 #Install cfgipec2
 RUN set -e -x; \
-	git -c http.sslVerify=false clone https://gitlab.atica.um.es/gabilm.um.es/cfgipsec2.git; \
-	cd cfgipsec2; 
+	git checkout wldyd; \
+	git clone https://github.com/patrick8link/i2nsf-ipsec.git; \
+	cd i2nsf-ipsec; 
 
-ENV SRC_PATH /home/netconf/cfgipsec2
+ENV SRC_PATH /home/netconf/i2nsf-ipsec
 WORKDIR $SRC_PATH
 
 
@@ -41,9 +42,7 @@ COPY misc/supervisord.conf /etc/supervisord.conf
 EXPOSE 830
 
 #SSH
-RUN apt update && apt install  openssh-server sudo -y
-RUN useradd -rm -d /home/patrick -s /bin/bash -g root -G sudo -u 1000 patrick
-RUN echo 'patrick:patrick' | chpasswd
-RUN service ssh start
+RUN apt-get update && apt-get install -y openssh-server
+RUN mkdir /var/run/sshd
+RUN sed -i 's/#PermitRootLogin prohibit-password/PermitRootLogin yes/' /etc/ssh/sshd_config
 EXPOSE 22
-CMD ["/usr/bin/supervisord", "-c", "/etc/supervisord.conf"]
