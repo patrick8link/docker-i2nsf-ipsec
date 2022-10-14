@@ -1,7 +1,14 @@
 FROM sysrepo/sysrepo-netopeer2:legacy
 
+RUN cd /opt/dev && \
+    cd libyang && git checkout v1.0.184 && \
+    cd build && \ 
+    cmake -DCMAKE_INSTALL_PREFIX=/usr -DCMAKE_BUILD_TYPE="Debug" -DENABLE_BUILD_TESTS=OFF .. && \
+    make -j2 && make install
+	
 ENV SRC_PATH /home/netconf
 WORKDIR $SRC_PATH
+
 
 
 
