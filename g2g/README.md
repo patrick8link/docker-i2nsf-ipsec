@@ -150,7 +150,7 @@ Run tcpdump in gw1 or gw2
 
 `>subscribe`
 
-`>edit-config --target running --config=/home/netconf/cfgipsec2/client-xmls/case1/g2g_tunnel_esp_enc_auth_gw1_spd_pad_ike.xml`
+`>edit-config --target running --config=/home/netconf/i2nsf-ipsec/client-xmls/g2g-ike-case-tunnel-mode-gw1.xml`
 
 `>get-config --source=running`
 
@@ -160,7 +160,7 @@ Run tcpdump in gw1 or gw2
 
 `>subscribe`
 
-`>edit-config --target running --config=/home/netconf/cfgipsec2/client-xmls/case1/g2g_tunnel_esp_enc_auth_gw2_spd_pad_ike.xml`
+`>edit-config --target running --config=/home/netconf/i2nsf-ipsec/client-xmls/g2g-ike-case-tunnel-mode-gw1.xml`
 
 `>get-config --source=running`
 
