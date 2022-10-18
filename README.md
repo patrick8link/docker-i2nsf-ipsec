@@ -1,7 +1,34 @@
+This repository updates the work of https://gitlab.atica.um.es/gabilm.um.es/cfgipsec2/tree/master to follow current release of RFC9061.
+
+Original work by:
+### Professors:
+
+- Rafael Marín López (rafa at um dot es, University of Murcia)
+- Fernando Pereñiguez García (fernando dot pereniguez at cud dot upct dot es, University Defense Center, CUD)
+- Gabriel López Millán (gabilm at um dot es, University of Murcia)
+
+### Collaborators:
+
+- Alejandro Pérez Méndez
+
+### Students:
+
+- Felipe Roca Blaya
+- Ignacio Martínez Alpiste
+- Rubén Ricard Sánchez
+- Adrián Miralles Palazón
+- Javier Pastor Galindo
+- Valentin Kivachuck
+
+Current release contributors:
+### Students:
+- Patrick Lingga
+- Uhm Jiyong
+
 # Docker compose for instances of sysrepo-netopeer2 with cfgipsec2 support
 
 
-This docker compose feeds from [Dockerfile for sysrepo-netopeer2](https://github.com/sysrepo-archive/docker-sysrepo-netopeer2) and from [cfgipsec: IPsec SAs configuration](https://gitlab.atica.um.es/gabilm.um.es/cfgipsec2).
+This docker compose feeds from [Dockerfile for sysrepo-netopeer2](https://github.com/sysrepo-archive/docker-sysrepo-netopeer2) and from [cfgipsec: IPsec SAs configuration](https://github.com/patrick8link/i2nsf-ipsec).
 
 ## Scenarios:
 
@@ -24,7 +51,7 @@ To test the different scenarios:
 
 Follow the README.md instructions.
 
-This is based on the work of https://gitlab.atica.um.es/gabilm.um.es/cfgipsec2/tree/master
+
 
 
 
