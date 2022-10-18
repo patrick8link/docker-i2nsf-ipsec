@@ -127,14 +127,14 @@ Run tcpdump in gw1 or gw2
 
 `\# docker exec -it g2g_gw1_1  /bin/bash`
 
-`\# ./ietf-ipsec -c case1`
+`\# ./ietf-i2nsf-ike -c case1 -v2`
 
 
 ## Connect to the Netconf server 2 and launch the cfgipsec2 service:
 
 `\# docker exec -it g2g_gw2_1  /bin/bash`
 
-`\# ./ietf-ipsec -c case1`
+`\# ./ietf-i2nsf-ike -c case1 -v2`
 
 
 ## Connect to the Netconf client:
@@ -160,7 +160,7 @@ Run tcpdump in gw1 or gw2
 
 `>subscribe`
 
-`>edit-config --target running --config=/home/netconf/i2nsf-ipsec/client-xmls/g2g-ike-case-tunnel-mode-gw1.xml`
+`>edit-config --target running --config=/home/netconf/i2nsf-ipsec/client-xmls/g2g-ike-case-tunnel-mode-gw2.xml`
 
 `>get-config --source=running`
 
@@ -178,7 +178,7 @@ From h1, test ping to h2
 
 Run tcpdump in gw1 or gw2. For example, in gw1:
 
-`\# docker exec g2g_gw1_1 tcpdump -i eth1 esp`
+`\# docker exec g2g_gw1_1 tcpdump -i eth1 -n esp`
 
 (can take a while to show the ESP packets)
 
