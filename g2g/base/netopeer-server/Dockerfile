@@ -27,7 +27,7 @@ RUN set -e -x; cp /home/netconf/strongswan-$STRONGSWAN_VERSION_BUILD/src/libchar
 ENV LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib/ipsec:/usr/lib/ipsec/
 
 RUN set -e -x; \
-	git clone https://github.com/patrick8link/i2nsf-ipsec.git; \
+	git clone https://github.com/patrick8link/i2nsf-ipsec.git -b test; \
 	cd i2nsf-ipsec; 
 
 
