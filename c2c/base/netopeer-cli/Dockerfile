@@ -18,7 +18,10 @@ RUN apt-get install -y iproute2 tcpdump iputils-ping curl libpam0g-dev autotools
 
 #Install cfgipec2, not compilation required, only for xml configuration examples
 RUN set -e -x; \
-	git clone https://github.com/patrick8link/i2nsf-ipsec.git; 
+	git clone https://github.com/patrick8link/i2nsf-ipsec.git; \
+    cd i2nsf-ipsec; \
+    git checkout wldyd; \
+    git pull;
 
 ENV SRC_PATH /home/netconf/i2nsf-ipsec
 WORKDIR $SRC_PATH
