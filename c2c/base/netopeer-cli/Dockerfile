@@ -14,6 +14,12 @@ WORKDIR $SRC_PATH
 
 RUN apt-get update
 RUN apt-get install -y iproute2 tcpdump iputils-ping curl libpam0g-dev autotools-dev autoconf
+RUN apt install software-properties-common
+RUN apt-add-repository ppa:deadsnakes/ppa
+RUN apt install python3.8
+RUN curl "https://bootstrap.pypa.io/pip/3.6/get-pip.py" -o "get-pip.py"
+RUN python3.8 get-pip.py
+RUN pip install ncclient
 
 
 #Install cfgipec2, not compilation required, only for xml configuration examples
@@ -21,7 +27,7 @@ RUN set -e -x; \
 	git clone https://github.com/patrick8link/i2nsf-ipsec.git; \
     cd i2nsf-ipsec; \
     git checkout wldyd; \
-    git pull;
+    git pull
 
 ENV SRC_PATH /home/netconf/i2nsf-ipsec
 WORKDIR $SRC_PATH
