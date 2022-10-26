@@ -16,7 +16,7 @@ RUN apt-get update
 RUN apt-get install -y iproute2 tcpdump iputils-ping curl libpam0g-dev autotools-dev autoconf
 RUN apt install -y software-properties-common
 RUN apt-add-repository ppa:deadsnakes/ppa
-RUN apt install python3.8
+RUN apt install -y python3.8
 RUN curl "https://bootstrap.pypa.io/pip/3.6/get-pip.py" -o "get-pip.py"
 RUN python3.8 get-pip.py
 RUN pip install ncclient
