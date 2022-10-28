@@ -31,57 +31,49 @@ The example is based on the following scenario:
 
 ## Check containers are running:
 
-`\# docker-compose ps`
+`\# sudo docker-compose ps`
 
 
-## Connect to the Netconf server 1 and launch the cfgipsec2 service:
+## Connect to Controller 1 (c1):
+
+`\# sudo docker exec -it c2c_c1_1 /bin/bash`
+`\# rm Makefile`
+`\# mv Makefile_controller Makefile`
+`\# make`
+`\# make install`
+`\# ./ietf-i2nsf-controller -v 2`
+
+## Connect to Gateway 1 (gw1):
 
 `\# sudo docker exec -it c2c_gw1_1  /bin/bash`
 
 `\# ./ietf-i2nsf-ike -c case1 -v 2`
 
-
-## Connect to the Netconf server 2 and launch the cfgipsec2 service:
+## Connect to Gateway 2 (gw2):
 
 `\# sudo docker exec -it c2c_gw2_1  /bin/bash`
 
 `\# ./ietf-i2nsf-ike -c case1 -v 2`
 
-
-## Connect to the C1:
-
-`\# docker exec -it c2c_c1_1 /bin/bash`
-
-`\# ./ietf-i2nsf-controller -v 2`
-
-## Connect to the C2:
-
+## Connect to the Controller 2 (c2):
 `\# docker exec -it c2c_c2_1 /bin/bash`
 
 `\# netopeer2-cli`
 
+## Configure IPSEC for gw2
+`> connect --host 10.0.2.234 --ssh --login netconf (password: netconf)`
+`> subscribe`
+`> edit-config --target running --config=/home/netconf/i2nsf-ipsec/client-xmls/g2g-ike-case-tunnel-mode-gw2.xml`
+`> get-config --source=running`
+`> disconnect`
 
-## Configure IPsec ESP host-2-host transport mode between h1 and h2
+## Configure IPSEC for gw1 through Controller 1
+`> connect --host 172.24.4.100 --ssh --login netconf (password: netconf)`
+`> subscribe`
+`> edit-config --target running --config=/home/netconf/i2nsf-ipsec/client-xmls/g2g-ike-case-tunnel-mode-gw1.xml`
+`> get-config --source=running`
+`> disconnect`
 
-`>connect --host 172.24.4.100 --ssh --login netconf (password: netconf)`
-
-`>subscribe`
-
-`>edit-config --target running --config=/home/netconf/i2nsf-ipsec/client-xmls/g2g-ike-case-tunnel-mode-gw1.xml`
-
-`>get-config --source=running`
-
-`>disconnect`
-
-`>connect --host 10.0.1.234 --ssh --login netconf (password: netconf)`
-
-`>subscribe`
-
-`>edit-config --target running --config=/home/netconf/i2nsf-ipsec/client-xmls/g2g-ike-case-tunnel-mode-gw1.xml`
-
-`>get-config --source=running`
-
-`>disconnect`
 
 ## Test
 
