@@ -56,7 +56,7 @@ The example is based on the following scenario:
 
 ## Configure IPsec ESP host-2-host transport mode between h1
 
-`>connect --host 10.0.1.204 --ssh --login netconf (password: netconf)`
+`>connect --host 10.0.2.234 --ssh --login netconf (password: netconf)`
 
 `>subscribe`
 

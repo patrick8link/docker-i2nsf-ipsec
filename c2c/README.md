@@ -87,7 +87,7 @@ From h1, test ping to h2
 
 Run tcpdump in gw1 or gw2. For example, in gw1:
 
-`\# docker exec c2c_gw1_1 tcpdump -i eth1 esp`
+`\# docker exec c2c_gw2_1 tcpdump -i eth0 esp`
 
 (can take a while to show the ESP packets)
 
