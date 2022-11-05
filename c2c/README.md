@@ -37,8 +37,7 @@ The example is based on the following scenario:
 ## Connect to Controller 1 (c1):
 
 `\# sudo docker exec -it c2c_c1_1 /bin/bash`
-`\# rm Makefile`
-`\# mv Makefile_controller Makefile`
+`\# cd controller`
 `\# make`
 `\# make install`
 `\# ./ietf-i2nsf-controller -v 2`
@@ -56,7 +55,7 @@ The example is based on the following scenario:
 `\# ./ietf-i2nsf-ike -c case1 -v 2`
 
 ## Connect to the Controller 2 (c2):
-`\# docker exec -it c2c_c2_1 /bin/bash`
+`\# sudo docker exec -it c2c_c2_1 /bin/bash`
 
 `\# netopeer2-cli`
 

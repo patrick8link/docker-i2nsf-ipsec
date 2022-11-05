@@ -31,18 +31,18 @@ The example is based on the following scenario:
 
 
 ## Connect to the Netconf server 1 and launch the cfgipsec2 service:
-
 `\# docker exec -it h2h_h1_1  /bin/bash`
-## Sometimes ietf-i2nsf-ikeless is not compiled properly
-`\# git pull`
+`\# cd ikeless`
 `\# make`
+`\# make install`
 `\# ./ietf-i2nsf-ikeless -v 2`
 
 
 ## Connect to the Netconf server 2 and launch the cfgipsec2 service:
 
 `\# docker exec -it h2h_h2_1 /bin/bash`
-`\# git pull`
+`\# cd ikeless`
+`\# make install`
 `\# make`
 `\# ./ietf-i2nsf-ikeless -v 2`
 
@@ -56,7 +56,7 @@ The example is based on the following scenario:
 
 ## Configure IPsec ESP host-2-host transport mode between h1
 
-`>connect --host 10.0.2.234 --ssh --login netconf (password: netconf)`
+`>connect --host 10.0.1.204 --ssh --login netconf (password: netconf)`
 
 `>subscribe`
 
