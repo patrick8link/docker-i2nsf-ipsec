@@ -1,4 +1,4 @@
-# Docker compose for instances of sysrepo-netopeer2 with cfgipsec2 support
+# Docker compose for instances of sysrepo-netopeer2 with i2nsf-ipsec support
 
 
 
