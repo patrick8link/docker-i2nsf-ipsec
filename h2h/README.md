@@ -47,7 +47,7 @@ The example is based on the following scenario:
 `\# ./ietf-i2nsf-ikeless -v 2`
 
 
-## Connect to the Netconf client for h1 configuration:
+## Connect to the Netconf client for h1 configuration:ls
 
 `\# docker exec -it h2h_c_1 /bin/bash`
 
